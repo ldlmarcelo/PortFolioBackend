@@ -4,7 +4,7 @@ import com.portfolio.miportfolio.iService.IExpLabService;
 import com.portfolio.miportfolio.model.ExpLab;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class ExpLabController {
 
     @Autowired
@@ -27,20 +27,20 @@ public class ExpLabController {
         return interExpLab.getExpLab();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/ExperienciaLaboral/crear")
     public String createExpLab(@RequestBody ExpLab expe) {
         interExpLab.saveExpLab(expe);
         return "La experiencia laboral fue creada correctamente";
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/ExperienciaLaboral/borrar/{id}")
     public String deleteExpLab(@PathVariable Long id) {
 
         interExpLab.deleteExpLab(id);
         return "La experiencia laboarl fue eliminada correctamente";
     }
-    @PreAuthorize("hasRole('ADMIN')")
+   //@PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("ExperienciaLaboral/editar/{id}")
 
     public ExpLab editExpLab(@PathVariable Long id,

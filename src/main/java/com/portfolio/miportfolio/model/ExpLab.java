@@ -15,10 +15,11 @@ public class ExpLab {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String empresa;
-    private String fecha;
-    private String puesto;
-    private String descripcion;
     private String logo;
+    private String empresa;
+    private String puesto;
+    private String fecha;
+    private String descripcion;
+    
        
 }
