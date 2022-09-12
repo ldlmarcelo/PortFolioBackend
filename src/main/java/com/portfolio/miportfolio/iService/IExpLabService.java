@@ -13,4 +13,9 @@ public interface IExpLabService {
     public void deleteExpLab(Long id);
 
     public ExpLab findExpLab(Long id);
+    
+     public ExpLab modificarExperiencia (ExpLab experiencia);
+   
+    
+    
 }
