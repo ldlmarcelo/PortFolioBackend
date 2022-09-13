@@ -41,9 +41,4 @@ public class EducacionService implements IEducacionService {
     }
 
 }
-/*
-    @Override
-    public ExpLab modificarExperiencia(ExpLab experiencia) {
-        return expLabRepository.save(experiencia);
-    }
-*/
+

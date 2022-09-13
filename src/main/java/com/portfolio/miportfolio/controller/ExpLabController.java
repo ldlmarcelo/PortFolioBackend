@@ -55,10 +55,10 @@ public class ExpLabController {
 
     
     @DeleteMapping("/ExperienciaLaboral/borrar/{id}")
-    public String deleteExpLab(@PathVariable Long id) {
+    public ResponseEntity deleteExpLab(@PathVariable("id") Long id) {
 
         interExpLab.deleteExpLab(id);
-        return "La experiencia laboral fue eliminada correctamente";
+        return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
     }
     
 
