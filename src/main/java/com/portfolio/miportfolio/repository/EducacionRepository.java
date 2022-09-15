@@ -1,4 +1,3 @@
-
 package com.portfolio.miportfolio.repository;
 
 import com.portfolio.miportfolio.model.Educacion;

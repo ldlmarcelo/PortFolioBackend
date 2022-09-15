@@ -58,7 +58,7 @@ public class ExpLabController {
     public ResponseEntity deleteExpLab(@PathVariable("id") Long id) {
 
         interExpLab.deleteExpLab(id);
-        return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Experiencia barroda"), HttpStatus.OK);
     }
     
 

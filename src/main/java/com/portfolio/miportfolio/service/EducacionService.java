@@ -20,7 +20,7 @@ public class EducacionService implements IEducacionService {
     }
 
     @Override
-    public void saveExpLab(Educacion edu) {
+    public void saveEdu(Educacion edu) {
         eduRepo.save(edu);
     }
 

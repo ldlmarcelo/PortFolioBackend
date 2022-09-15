@@ -31,25 +31,30 @@ public class EduController {
 
     //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/Educacion/crear")
-    public ResponseEntity createExpLab(@RequestBody Educacion edu) {
+    public ResponseEntity createEdu(@RequestBody Educacion edu) {
 
         if (StringUtils.isBlank(edu.getInstitucion())) {
             return new ResponseEntity(new Mensaje("incluir Institucion"), HttpStatus.BAD_REQUEST);
         }
+        
+          if (StringUtils.isBlank(edu.getFecha())) {
+            return new ResponseEntity(new Mensaje("incluir fecha"), HttpStatus.BAD_REQUEST);
+        }
+
 
         if (StringUtils.isBlank(edu.getTitulo())) {
             return new ResponseEntity(new Mensaje("incluir titulo"), HttpStatus.BAD_REQUEST);
         }
 
-        interEdu.saveExpLab(edu);
+        interEdu.saveEdu(edu);
         return new ResponseEntity(new Mensaje("Educacion agregada"), HttpStatus.OK);
     }
 
     @DeleteMapping("/Educacion/borrar/{id}")
-    public String deleteEdu(@PathVariable Long id) {
+    public ResponseEntity deleteEdu(@PathVariable Long id) {
 
         interEdu.deleteEdu(id);
-        return "La educacion fue eliminada correctamente";
+        return new ResponseEntity(new Mensaje("Educación borrada"), HttpStatus.OK);
 
     }
     

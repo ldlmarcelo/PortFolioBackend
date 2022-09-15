@@ -14,9 +14,9 @@ public class Educacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private String id;
-    private String institucion;
+    private Long id;
     private String fecha;
+    private String institucion;    
     private String titulo;
 
 }
