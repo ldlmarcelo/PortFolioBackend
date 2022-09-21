@@ -10,12 +10,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Softskill {
+public class Hardskill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String habilidad;
+    private String icon;
     private int porcentaje;
-    private String tooltip;
+   
 }

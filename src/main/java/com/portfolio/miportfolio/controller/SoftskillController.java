@@ -2,10 +2,8 @@ package com.portfolio.miportfolio.controller;
 
 import com.portfolio.miportfolio.Security.Controller.Mensaje;
 import com.portfolio.miportfolio.iService.ISoftskillService;
-import com.portfolio.miportfolio.model.ExpLab;
 import com.portfolio.miportfolio.model.Softskill;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.apache.commons.lang3.StringUtils;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class SoftskillController {
 
     @Autowired
-    ISoftskillService iSoftkillService;
+    private ISoftskillService iSoftkillService;
 
     @GetMapping("/softskill/traer")
     public List<Softskill> getSoftskill() {
@@ -36,21 +35,19 @@ public class SoftskillController {
             return new ResponseEntity(new Mensaje("incluir habilidad"), HttpStatus.BAD_REQUEST);
 
         }
- 
+
         //voy a validar que el porcentaje sea solo nro en el front
-        
         iSoftkillService.saveSoftskill(softskill);
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
     }
-    
-    @DeleteMapping("/softskill/eliminar/(id)")
-       public ResponseEntity deleteSoftskill(@PathVariable("id") Long id) {
+
+    @DeleteMapping("/softskill/borrar/{id}")
+    public ResponseEntity deleteSoftskill(@PathVariable Long id) {
 
         iSoftkillService.deleteSoftskill(id);
-        return new ResponseEntity(new Mensaje("Softskill barrodo"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Softskill borrado"), HttpStatus.OK);
     }
-       
-       
+
     @PutMapping("/softskill/modificar")
     public ResponseEntity<Softskill> modificarSoftskill(@RequestBody Softskill softskill) {
         Softskill softskillModificada = iSoftkillService.modificarSoftskill(softskill);

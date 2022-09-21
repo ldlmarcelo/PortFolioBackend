@@ -12,6 +12,6 @@ public interface ISoftskillService {
     public void deleteSoftskill(Long id);
 
     public Softskill findSoftskill(Long id);
-    
+
     public Softskill modificarSoftskill(Softskill softskill);
 }
