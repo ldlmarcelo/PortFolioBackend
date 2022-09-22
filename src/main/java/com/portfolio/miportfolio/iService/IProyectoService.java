@@ -1,12 +1,11 @@
-
 package com.portfolio.miportfolio.iService;
 
 import com.portfolio.miportfolio.model.Proyecto;
 import java.util.List;
 
 public interface IProyectoService {
-    
-        public List<Proyecto> getProyecto();
+
+    public List<Proyecto> getProyecto();
 
     public void saveProyecto(Proyecto proyecto);
 
